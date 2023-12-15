@@ -1,0 +1,78 @@
+<%-include('../partials/header')%>
+<br><br><br><br><br>
+
+<div id="headingShow">
+    <h1 style="font-size: 42px; width: 100%; text-align: center;"><%=foundBlog.headline%></h1>
+    <p style="color: #6b6b6b;font-size: 22px; text-align: center;"><%=foundBlog.text%></p>
+    
+    <section id="name" >
+        <p style="display: inline;">By <%=foundBlog.name%> </p>
+        <%if(foundBlog.org != ''){%>
+            &nbsp; <p>in <%=foundBlog.org%></p>
+        <%}%>
+        <p>,  <%=foundBlog.date%></p>
+    </section>
+    
+</div>
+
+<article id="articleContainer" >
+
+    <img src="<%=foundBlog.img%>" alt="" id="articleImage">
+    <p id="articleComment"><%=foundBlog.comment%></p>
+
+</article>
+<hr>
+<br><br><br><br><br>
+<br>
+<div>
+    <div id="review-form">
+        
+        <form action="/blogs/<%=foundBlog._id%>/reviews" method="post" id="review-form-form" novalidate>
+            <h1>Add Comments!</h1>
+            <div>
+                <label for="name">Your Name : </label>
+                <input type="text" id="name" style="display: inline;" name="name" required>
+            </div>
+            <!-- <div>
+                <label for="rating">Rate this blog : </label>
+                <input type="range" id="rating" min="0" max="5" name="rating" step="1">
+            </div> -->
+            <fieldset class="starability-basic">
+                <legend>Rating:</legend>
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="rating" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="rating" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="rating" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="rating" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="rating" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
+            <div>
+                <label for="comment">Comment : </label>
+                <textarea name="comment" id="comment" cols="60" rows="3" placeholder="Spread positivity" required></textarea>
+            </div>
+            <button>Add Comment!</button>
+        </form>
+
+
+        <div id="reviews">
+            <%for(let item of foundBlog.reviews){%>
+                <article class="show-comments">
+                    <h3><%=item.name%></h3>
+                    <p>Rating : <%=item.rating%></p>
+                    <p><%=item.comment%></p>
+                    <p><%=item.createdAt.toDateString()%></p>
+                </article>
+            <%}%>
+        </div>
+
+
+
+    </div>
+</div>
+    
+<%-include('../partials/footer')%>

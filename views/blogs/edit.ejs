@@ -1,0 +1,37 @@
+<%-include('../partials/header')%>
+<br><br><br><br><br>
+<form action="/blogs/<%=foundBlog._id%>?_method=PATCH" method="POST" id="newForm">
+    <div class="ipDiv">
+        <label for="username">Your Name</label>
+        <p style="width: 75%;"><%=foundBlog.name%></p>
+    </div>
+    <br><br>
+    <div class="ipDiv">
+        <label for="org">Workplace</label>
+        <textarea name="org" id="org" cols="65" class="newInput"><%=foundBlog.org%></textarea>
+    </div>
+    <br><br>
+    <div class="ipDiv">
+        <label for="headline">Topic</label>
+        <textarea name="headline" id="headline" cols="65" class="newInput" required><%=foundBlog.headline%></textarea> 
+    </div>
+    <br><br>
+    <div class="ipDiv">
+        <label for="text">Tag Line</label>
+        <textarea name="text" id="text" cols="65" class="newInput" required><%=foundBlog.text%></textarea> 
+    </div>    
+    <br><br>
+    <div class="ipDiv">
+        <label for="img">Image URL</label>
+        <textarea name="img" id="img" cols="65" class="newInput"><%=foundBlog.img%></textarea> 
+    </div>
+    <br><br>
+    <div class="ipDiv">
+        <label for="comment">Your thoughts</label>
+        <textarea name="comment" id="comment" cols="65" class="newInput" required><%=foundBlog.comment%></textarea> 
+    </div>
+    <br><br>
+    <button class="newBtn">Save Changes!</button>
+</form>
+
+<%-include('../partials/footer')%>

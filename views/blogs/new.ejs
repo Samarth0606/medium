@@ -1,0 +1,36 @@
+<%-include('../partials/header')%>
+    <br><br><br><br><br>
+    <form action="/blogs" method="post" id="newForm" novalidate>
+        <div class="ipDiv">
+            <label for="username">Your Name</label>
+            <textarea name="name" id="username" cols="65" rows="2" required></textarea>
+        </div>
+        <br><br>
+        <div class="ipDiv">
+            <label for="org">Workplace</label>
+            <textarea name="org" id="org" cols="65" class="newInput"></textarea>
+        </div>
+        <br><br>
+        <div class="ipDiv">
+            <label for="headline">Topic</label>
+            <textarea name="headline" id="headline" cols="65" class="newInput" required></textarea> 
+        </div>
+        <br><br>
+        <div class="ipDiv">
+            <label for="text">Tag Line</label>
+            <textarea name="text" id="text" cols="65" class="newInput" required></textarea> 
+        </div>    
+        <br><br>
+        <div class="ipDiv">
+            <label for="img">Image URL</label>
+            <textarea name="img" id="img" cols="65" class="newInput"></textarea> 
+        </div>
+        <br><br>
+        <div class="ipDiv">
+            <label for="comment">Your thoughts</label>
+            <textarea name="comment" id="comment" cols="65" class="newInput" required></textarea> 
+        </div>
+        <br><br>
+        <button class="newBtn">Add Blog!</button>
+    </form>
+
